@@ -1,15 +1,13 @@
-function Enemy (type) {
-    this.type = type;
-    this.color = "red";
+function Enemy (spawnLoc) {
     this.position = {};
-    this.position.x = Math.random() * 400;
-    this.position.y = Math.random() * 400;
+    this.position.x = 100;
+    this.position.y = 100;
+}
+
+Enemy.prototype.update = function() {
+    this.move();
 }
  
 Enemy.prototype.move = function() {
-    center = {
-        x = displayWidth / 2,
-        y = displayHeight / 2
-    };
-    
+    this.position.y += 1;
 };

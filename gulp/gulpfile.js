@@ -7,7 +7,9 @@ var src = "../src/";
 
 var files = [
     src + 'main.js',
-    src + 'enemy.js'
+    src + 'enemy.js',
+    src + 'wall.js',
+    src + 'spawn.js'
 ]
 
 gulp.task('js-fef', function(){

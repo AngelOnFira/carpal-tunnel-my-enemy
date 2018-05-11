@@ -1,4 +1,4 @@
-function Enemy (type) {
+function Spawn (type) {
     this.type = type;
     this.color = "red";
     this.position = {};
@@ -6,10 +6,6 @@ function Enemy (type) {
     this.position.y = Math.random() * 400;
 }
  
-Enemy.prototype.move = function() {
-    center = {
-        x = displayWidth / 2,
-        y = displayHeight / 2
-    };
-    
+Enemy.prototype.createEntity = function() {
+    return this.color + ' ' + this.type + ' apple';
 };

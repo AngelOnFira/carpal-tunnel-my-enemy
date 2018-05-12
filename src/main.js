@@ -5,22 +5,32 @@ function setup() {
 function draw() {
 
   // Update
-  spawn()
+  spawn();
 
   // Draw
-  rect(0,0,590,590);
-  for (var i = 0; i < enemies.length; i++) {
-    thisEnemy = enemies[i];
+  rect(0,0,700,700);
 
-    thisEnemy.update();
+  // Draw the enemeies
+  var currEnemy = 0;
+  while (currEnemy < enemies.length){
+    var thisEnemy = enemies[currEnemy];
+
+    //If this enemy dies
+    if (thisEnemy.update()) {
+      enemies.splice(currEnemy, 1)
+      continue;
+    }
+    else {
+      currEnemy += 1;
+    }
 
     var c = color(220, 10, 10);
 
     fill(c);
     noStroke();
     rect(
-      int(thisEnemy.position.x),
-      int(thisEnemy.position.y),
+      int(thisEnemy.position.x - 10),
+      int(thisEnemy.position.y - 10),
       20,
       20
     );
@@ -42,6 +52,21 @@ function draw() {
       thisWall.position.y,
       thisWall.dims.x,
       thisWall.dims.y
+    );
+  }
+
+  // Draw the towers
+  for (var i = 0; i < towers.length; i++) {
+    var thisTower = towers[i];
+    var c = color(40, 40, 220);
+
+    fill(c);
+    noStroke();
+    rect(
+      thisTower.position.x,
+      thisTower.position.y,
+      30,
+      30
     );
   }
 

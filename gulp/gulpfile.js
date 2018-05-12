@@ -12,7 +12,10 @@ var files = [
     src + 'wall.js',
     src + 'spawn.js',
     src + 'init.js',
-    src + 'tower.js'
+    src + 'tower.js',
+    src + 'input.js',
+    src + 'projectile.js',
+    src + 'function.js'
 ]
 
 gulp.task('js-fef', function(){

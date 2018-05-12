@@ -12,28 +12,44 @@ function draw() {
 
   // Draw the enemeies
   var currEnemy = 0;
-  while (currEnemy < enemies.length){
-    var thisEnemy = enemies[currEnemy];
+  for (var lane = 0; lane < 4; lane++) {
+    while (currEnemy < enemies.length){
+      var thisEnemy = enemies[lane][currEnemy];
 
-    //If this enemy dies
-    if (thisEnemy.update()) {
-      enemies.splice(currEnemy, 1)
-      continue;
+      // If this enemy dies
+      if (thisEnemy.update()) {
+        enemies[lane].splice(currEnemy, 1)
+        continue;
+      }
+      else {
+        currEnemy += 1;
+      }
+
+      var c = color(
+        255 - (thisEnemy.health / 50 * 200 + 40),
+        thisEnemy.health / 50 * 200 + 40,
+        0
+      );
+
+      fill(c);
+      noStroke();
+      rect(
+        int(thisEnemy.position.x - 10),
+        int(thisEnemy.position.y - 10),
+        20,
+        20
+      );
+
+      var incProj = thisEnemy.incomingProjectiles.length;
+      for (var projNum = 0; projNum < incProj; i++) {
+        var thisProj = thisEnemy.incomingProjectiles[projNum];
+        
+        var c = color(220, 10, 10);
+        fill(c);
+
+        ellipse(thisProj.position.x, thisProj.position.y, 10);
+      }
     }
-    else {
-      currEnemy += 1;
-    }
-
-    var c = color(220, 10, 10);
-
-    fill(c);
-    noStroke();
-    rect(
-      int(thisEnemy.position.x - 10),
-      int(thisEnemy.position.y - 10),
-      20,
-      20
-    );
   }
 
   // Draw the walls

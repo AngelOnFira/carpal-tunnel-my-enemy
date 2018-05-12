@@ -4,9 +4,10 @@ function init() {
   var y = (windowHeight - height) / 2;
   cnv.position(x, y);
 
-  enemies = [];
+  enemies = [[], [], [], []];
   walls = [];
   towers = [];
+  keysPressed = [0,0,0,0];
 
   walls.push(new Wall(350, 250, 0));
   walls.push(new Wall(450, 350, 1));
@@ -22,4 +23,6 @@ function init() {
 
   currentSpawnTime = 200;
   lastSpawn = millis();
+
+  frameRate(30);
 }

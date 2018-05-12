@@ -6,12 +6,12 @@ function Enemy (spawnLoc) {
         y = -20;
     }
     else if (spawnLoc == 1) {
-        x = 620;
+        x = 720;
         y = random(250, 450);
     }
     else if (spawnLoc == 2) {
         x = random(250, 450);
-        y = 620;
+        y = 720;
     }
     else if (spawnLoc == 3) {
         x = -20;
@@ -22,11 +22,15 @@ function Enemy (spawnLoc) {
     this.position = {};
     this.position.x = x;
     this.position.y = y;
+    this.health = 50;
+
+    this.incomingProjectiles = [];
 }
 
 Enemy.prototype.update = function() {
 
     this.move();
+    this.updateIncomingProjectiles();
 
     // If this unit dies
     if (this.checkAlive()) {
@@ -51,6 +55,11 @@ Enemy.prototype.move = function() {
 };
 
 Enemy.prototype.checkAlive = function() {
+
+    if (this.health <= 0) {
+        this.die();
+        return 1;
+    }
     
     if (this.lane == 0) {
         if (this.position.y > 250) {
@@ -84,4 +93,19 @@ Enemy.prototype.checkAlive = function() {
 Enemy.prototype.die = function() {
     
     walls[this.lane].health -= 30;
+}
+
+Enemy.prototype.shoot = function() {
+    this.incomingProjectiles.push(new Projectile());
+}
+
+Enemy.prototype.updateIncomingProjectiles = function() {
+    for (var i = 0; i < incomingProjectiles.length; i++) {
+        var thisBullet = this.incomingProjectiles[i];
+
+        // Update the projectile and see if this takes damage
+        if (thisBullet.update(this.position.x, this.position.y)) {
+            this.health -= thisBullet.damage;
+        }
+    }
 }

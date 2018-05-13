@@ -34,6 +34,7 @@ Enemy.prototype.update = function() {
 
     // If this unit dies
     if (this.checkAlive()) {
+        console.log("dead");    
         return 1;
     }
 }
@@ -95,12 +96,12 @@ Enemy.prototype.die = function() {
     walls[this.lane].health -= 30;
 }
 
-Enemy.prototype.shoot = function() {
-    this.incomingProjectiles.push(new Projectile());
-}
+Enemy.prototype.shoot = function(startX, startY) {
+    this.incomingProjectiles.push(new Projectile(startX, startY, 10));
+}   
 
 Enemy.prototype.updateIncomingProjectiles = function() {
-    for (var i = 0; i < incomingProjectiles.length; i++) {
+    for (var i = 0; i < this.incomingProjectiles.length; i++) {
         var thisBullet = this.incomingProjectiles[i];
 
         // Update the projectile and see if this takes damage

@@ -11,9 +11,9 @@ function draw() {
   rect(0,0,700,700);
 
   // Draw the enemeies
-  var currEnemy = 0;
   for (var lane = 0; lane < 4; lane++) {
-    while (currEnemy < enemies.length){
+    var currEnemy = 0;
+    while (currEnemy < enemies[lane].length){
       var thisEnemy = enemies[lane][currEnemy];
 
       // If this enemy dies
@@ -40,10 +40,10 @@ function draw() {
         20
       );
 
-      var incProj = thisEnemy.incomingProjectiles.length;
-      for (var projNum = 0; projNum < incProj; i++) {
+      var incProjCount = thisEnemy.incomingProjectiles.length;
+      for (var projNum = 0; projNum < incProjCount; projNum++) {
         var thisProj = thisEnemy.incomingProjectiles[projNum];
-        
+
         var c = color(220, 10, 10);
         fill(c);
 

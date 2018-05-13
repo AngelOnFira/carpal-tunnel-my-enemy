@@ -3,7 +3,6 @@ function Projectile (x, y, damage) {
     this.position.x = x;
     this.position.y = y;
     this.damage = damage;
-    console.log(x,y);
 }
 
 Projectile.prototype.update = function(targetX, targetY) {

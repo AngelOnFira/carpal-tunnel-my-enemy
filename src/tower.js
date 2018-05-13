@@ -24,7 +24,6 @@ Tower.prototype.findTarget = function(lane) {
             closestIndex = i;
         }
     }
-    console.log(closest);
 
     if (closest != -1) {
         enemies[lane][closestIndex].shoot(this.position.x, this.position.y);

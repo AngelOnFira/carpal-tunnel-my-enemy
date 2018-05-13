@@ -1,6 +1,4 @@
 function keyPressed() {
-    console.log(keyCode);
-
     if (keyCode == 65 || keyCode == 97) {
         // Left
 

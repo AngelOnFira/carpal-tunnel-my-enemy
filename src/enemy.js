@@ -34,7 +34,6 @@ Enemy.prototype.update = function() {
 
     // If this unit dies
     if (this.checkAlive()) {
-        console.log("dead");    
         return 1;
     }
 }
@@ -58,7 +57,7 @@ Enemy.prototype.move = function() {
 Enemy.prototype.checkAlive = function() {
 
     if (this.health <= 0) {
-        this.die();
+        money += 1;
         return 1;
     }
     

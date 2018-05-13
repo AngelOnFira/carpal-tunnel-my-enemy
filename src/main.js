@@ -3,13 +3,28 @@ function setup() {
 }
 
 function draw() {
-
+  
   // Update
   spawn();
-
+  
   // Draw
   rect(0,0,700,700);
-
+  
+  // Draw the towers
+  for (var i = 0; i < towers.length; i++) {
+    var thisTower = towers[i];
+    var c = color(40, 40, 220);
+  
+    fill(c);
+    noStroke();
+    rect(
+      thisTower.position.x,
+      thisTower.position.y,
+      30,
+      30
+    );
+  }
+  
   // Draw the enemeies
   for (var lane = 0; lane < 4; lane++) {
     var currEnemy = 0;
@@ -71,20 +86,13 @@ function draw() {
     );
   }
 
-  // Draw the towers
-  for (var i = 0; i < towers.length; i++) {
-    var thisTower = towers[i];
-    var c = color(40, 40, 220);
+  // Text
 
-    fill(c);
-    noStroke();
-    rect(
-      thisTower.position.x,
-      thisTower.position.y,
-      30,
-      30
-    );
-  }
+  var c = color(255, 255, 255);
+  fill(c);
+
+  textSize(18);
+  text("Gold: " + money, 20, 50);
 
   var c = color(0, 0, 0);
   fill(c);

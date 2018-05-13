@@ -19,10 +19,12 @@ function init() {
   towers.push(new Tower(280, 390));
   towers.push(new Tower(390, 390));
 
-  var startTime = millis();
+  startTime = millis();
 
   currentSpawnTime = 200;
   lastSpawn = millis();
 
   frameRate(30);
+
+  money = 0; 
 }

@@ -1,12 +1,7 @@
-function checkInput() {
-	if (mouseIsPressed) {
-		if (mouseButton === LEFT) {
-			console.log("checking");
-			for (var i = 0; i < buttons.length; i++) {
-				var thisButton = buttons[i];
-				thisButton.checkTriggered();
-			}
-		}
+function mouseClicked() {
+	for (var i = 0; i < buttons.length; i++) {
+		var thisButton = buttons[i];
+		thisButton.checkTriggered();
 	}
 }
 

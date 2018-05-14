@@ -28,5 +28,5 @@ function init() {
 
 	money = 0;
 
-	buttons.push(new Button(100, 100, "test", sayHi()))
+	buttons.push(new Button(100, 100, "test", sayHi));
 }

@@ -1,19 +1,19 @@
-function draw() {
-	background();
-	scene();
-	HUD();
+function drawAll() {
+	drawBackground();
+	drawScene();
+	drawHUD();
 	var c = color(255, 255, 255);
 	fill(c);
 }
 
-function background() {
+function drawBackground() {
 	// Canvas rectangle
 	var c = color(0, 0, 0);
 	fill(c);
 	rect(0,0,700,700);
 }
 
-function scene() {
+function drawScene() {
 
 	// Draw the towers
 	for (var i = 0; i < towers.length; i++) {
@@ -92,7 +92,7 @@ function scene() {
 	}
 }
 
-function HUD() {
+function drawHUD() {
 	var c = color(255, 255, 255);
 	
 	fill(c);

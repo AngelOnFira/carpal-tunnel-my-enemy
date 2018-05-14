@@ -6,10 +6,9 @@ function draw() {
 	
 	// Update
 	spawn();
-	checkInput();
 	
 	// Draw
-	draw();
+	drawAll();
 }
 
 function mousePressed() {

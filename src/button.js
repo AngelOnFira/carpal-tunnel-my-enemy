@@ -11,12 +11,12 @@ function Button (x, y, text, onTrigger) {
 	this.onTrigger = onTrigger;
 }
 
-Tower.prototype.checkTriggered = function() {
+Button.prototype.checkTriggered = function() {
 
 	if (mouseX > this.position.x &&
 		mouseX < this.position.x + this.size.x &&
 		mouseY > this.position.y &&
-		mouseY < this.position.y
+		mouseY < this.position.y + this.size.y
 	){
 		this.onTrigger();
 	}

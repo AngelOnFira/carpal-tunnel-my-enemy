@@ -15,7 +15,9 @@ var files = [
     src + 'tower.js',
     src + 'input.js',
     src + 'projectile.js',
-    src + 'functions.js'
+    src + 'functions.js',
+    src + 'button.js',
+    src + 'draw.js'
 ]
 
 gulp.task('js-fef', function(){

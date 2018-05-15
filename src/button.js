@@ -4,7 +4,7 @@ function Button (x, y, text, onTrigger) {
 	this.position.y = y;
 
 	this.size = {};
-	this.size.x = 100;
+	this.size.x = 160;
 	this.size.y = 20;
 
 	this.text = text;
@@ -22,6 +22,9 @@ Button.prototype.checkTriggered = function() {
 	}
 }
 
-function sayHi() {
-	console.log("hi");
+function increaseDamage() {
+	if (money >= 20) {
+		money -= 20;
+		globalDamage += 5;
+	}
 }

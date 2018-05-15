@@ -20,11 +20,12 @@ function Enemy (spawnLoc) {
 
 	this.lane = spawnLoc;
 	this.position = {};
-	this.position.x = x;
-	this.position.y = y;
+	this.position.x = float(x);
+	this.position.y = float(y);
 	this.health = 50;
 
 	this.incomingProjectiles = [];
+	this.speed = 1;
 }
 
 Enemy.prototype.update = function() {
@@ -40,18 +41,16 @@ Enemy.prototype.update = function() {
  
 Enemy.prototype.move = function() {
 	
-	if (this.lane == 0) {
-		this.position.y += 1;
-	}
-	else if (this.lane == 1) {
-		this.position.x -= 1;
-	}
-	else if (this.lane == 2) {
-		this.position.y -= 1;
-	}
-	else if (this.lane == 3) {
-		this.position.x += 1;
-	}
+	var movement = calcMovement(
+		this.position.x,
+		this.position.y,
+		350,
+		350,
+		this.speed
+	);
+
+	this.position.x += movement[0];
+	this.position.y += movement[1];
 };
 
 Enemy.prototype.checkAlive = function() {
@@ -92,12 +91,21 @@ Enemy.prototype.checkAlive = function() {
 
 Enemy.prototype.die = function() {
 	
-	walls[this.lane].health -= 30;
+	if (wallsAlive[this.lane]) {
+		walls[this.lane].health -= 2;
+		if (walls[this.lane].update) {
+			splice(walls[this.lane, 1]);
+			wallsAlive[this.lane] = 0;
+		}
+	}
+	else {
+		gameOver = 1;
+	}
 }
 
 Enemy.prototype.shoot = function(startX, startY) {
 
-	this.incomingProjectiles.push(new Projectile(startX + 15, startY + 15, 10));
+	this.incomingProjectiles.push(new Projectile(startX + 15, startY + 15, globalDamage));
 }
 
 Enemy.prototype.updateIncomingProjectiles = function() {

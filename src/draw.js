@@ -76,8 +76,8 @@ function drawScene() {
 	for (var i = 0; i < walls.length; i++) {
 		var thisWall = walls[i];
 		var c = color(
-			255 - (thisWall.health / 500 * 200 + 40),
-			thisWall.health / 500 * 200 + 40,
+			255 - (thisWall.health / 2 * 200 + 40),
+			thisWall.health / 2 * 200 + 40,
 			0
 		);
 
@@ -94,8 +94,8 @@ function drawScene() {
 	// Draw the player orb
 
 	var c = color(
-		255 - (thisWall.health / 500 * 200 + 40),
-		thisWall.health / 500 * 200 + 40,
+		255 - (playerOrb.health / 500 * 200 + 40),
+		playerOrb.health / 500 * 200 + 40,
 		0
 	);
 
@@ -133,7 +133,7 @@ function drawHUD() {
 		fill(c);
 	
 		textSize(12);
-		text(thisButton.text, thisButton.position.x + 20, thisButton.position.y + 15);
+		text(thisButton.text, thisButton.position.x + 10, thisButton.position.y + 15);
 	}
 
 	var c = color(255, 255, 255);
@@ -157,7 +157,7 @@ function drawHUD() {
 		fill(c);
 		stroke(255, 255, 255);
 		strokeWeight(4);
-		rect(165, 290, 370, 100);
+		rect(165, 290, 400, 100);
 
 		noStroke();
 		var c = color(255, 255, 255);

@@ -1,4 +1,4 @@
-function PlayerOrb (x, y, vert) {
+function PlayerOrb () {
 	this.health = 500;
 }
 

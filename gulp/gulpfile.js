@@ -17,7 +17,8 @@ var files = [
     src + 'projectile.js',
     src + 'functions.js',
     src + 'button.js',
-    src + 'draw.js'
+    src + 'draw.js',
+    src + 'playerOrb.js'
 ]
 
 gulp.task('js-fef', function(){

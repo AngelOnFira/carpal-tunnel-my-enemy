@@ -1,10 +1,12 @@
 function init() {
+	console.log("Init");
 	var cnv = createCanvas(700, 700);
 	var x = (windowWidth - width) / 2;
 	var y = (windowHeight - height) / 2;
 	cnv.position(x, y);
 
 	enemies = [[], [], [], []];
+	wallsAlive = [1, 1, 1, 1];
 	walls = [];
 	towers = [];
 	buttons = [];
@@ -20,15 +22,17 @@ function init() {
 	towers.push(new Tower(280, 390));
 
 	startTime = millis();
-
-	currentSpawnTime = 200;
 	lastSpawn = millis();
+	nextSpawn = millis();
+
+	currentSpawnTime = 5000;
 
 	frameRate(30);
 
 	money = 0;
+	globalDamage = 10;
 
-	buttons.push(new Button(20, 100, "test", sayHi));
+	buttons.push(new Button(20, 70, "Increase Damage - 20g", increaseDamage));
 
 	tutorial = {};
 	tutorial.w = 1;
@@ -37,4 +41,7 @@ function init() {
 	tutorial.d = 1;
 	
 	gameOver = 0;
+	playerOrb = new PlayerOrb();
+
+	console.log("Starting");
 }

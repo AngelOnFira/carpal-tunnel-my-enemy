@@ -36,4 +36,5 @@ function init() {
 	tutorial.s = 1;
 	tutorial.d = 1;
 	
+	gameOver = 0;
 }

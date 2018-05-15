@@ -97,7 +97,7 @@ Enemy.prototype.die = function() {
 
 Enemy.prototype.shoot = function(startX, startY) {
 
-	this.incomingProjectiles.push(new Projectile(startX, startY, 10));
+	this.incomingProjectiles.push(new Projectile(startX + 15, startY + 15, 10));
 }
 
 Enemy.prototype.updateIncomingProjectiles = function() {

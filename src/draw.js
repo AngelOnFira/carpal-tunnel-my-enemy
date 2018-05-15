@@ -90,6 +90,23 @@ function drawScene() {
 			thisWall.dims.y
 		);
 	}
+
+	// Draw the player orb
+
+	var c = color(
+		255 - (thisWall.health / 500 * 200 + 40),
+		thisWall.health / 500 * 200 + 40,
+		0
+	);
+
+	fill(c);
+	noStroke();
+	ellipse(
+		350,
+		350,
+		40,
+		40
+	);
 }
 
 function drawHUD() {
@@ -134,5 +151,20 @@ function drawHUD() {
 	if (tutorial.d) {
 		text("D", 395, 360);
 	}
+	
+	if (gameOver) {
+		var c = color(0, 0, 0);
+		fill(c);
+		stroke(255, 255, 255);
+		strokeWeight(4);
+		rect(165, 290, 370, 100);
+
+		noStroke();
+		var c = color(255, 255, 255);
+		fill(c);
+		textSize(60);
+		text("Game Over", 195, 360);
+	}
+
 	textSize(18);
 }

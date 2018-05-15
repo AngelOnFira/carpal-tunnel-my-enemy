@@ -16,8 +16,8 @@ function init() {
 
 	towers.push(new Tower(280, 280));
 	towers.push(new Tower(390, 280));
-	towers.push(new Tower(280, 390));
 	towers.push(new Tower(390, 390));
+	towers.push(new Tower(280, 390));
 
 	startTime = millis();
 
@@ -28,5 +28,12 @@ function init() {
 
 	money = 0;
 
-	buttons.push(new Button(100, 100, "test", sayHi));
+	buttons.push(new Button(20, 100, "test", sayHi));
+
+	tutorial = {};
+	tutorial.w = 1;
+	tutorial.a = 1;
+	tutorial.s = 1;
+	tutorial.d = 1;
+	
 }

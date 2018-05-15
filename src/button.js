@@ -4,7 +4,7 @@ function Button (x, y, text, onTrigger) {
 	this.position.y = y;
 
 	this.size = {};
-	this.size.x = 200;
+	this.size.x = 100;
 	this.size.y = 20;
 
 	this.text = text;

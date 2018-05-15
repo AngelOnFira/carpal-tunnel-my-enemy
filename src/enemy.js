@@ -96,16 +96,25 @@ Enemy.prototype.die = function() {
 }
 
 Enemy.prototype.shoot = function(startX, startY) {
+
 	this.incomingProjectiles.push(new Projectile(startX, startY, 10));
 }
 
 Enemy.prototype.updateIncomingProjectiles = function() {
-	for (var i = 0; i < this.incomingProjectiles.length; i++) {
-		var thisBullet = this.incomingProjectiles[i];
+
+	var currProjectile = 0;
+	while (currProjectile < this.incomingProjectiles.length){
+
+		var thisBullet = this.incomingProjectiles[currProjectile];
 
 		// Update the projectile and see if this takes damage
 		if (thisBullet.update(this.position.x, this.position.y)) {
 			this.health -= thisBullet.damage;
+			this.incomingProjectiles.splice(currProjectile, 1);
+			continue;
+		}
+		else {
+			currProjectile++; 
 		}
 	}
 }

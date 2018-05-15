@@ -116,6 +116,23 @@ function drawHUD() {
 		fill(c);
 	
 		textSize(12);
-		text("Hi button", thisButton.position.x + 20, thisButton.position.y + 15);
+		text(thisButton.text, thisButton.position.x + 20, thisButton.position.y + 15);
 	}
+
+	var c = color(255, 255, 255);
+	fill(c);
+	textSize(30);
+	if (tutorial.w) {
+		text("W", 335, 305);
+	}
+	if (tutorial.a) {
+		text("A", 285, 360);
+	}
+	if (tutorial.s) {
+		text("S", 340, 415);
+	}
+	if (tutorial.d) {
+		text("D", 395, 360);
+	}
+	textSize(18);
 }
